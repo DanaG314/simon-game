@@ -1,5 +1,60 @@
 body {
+   text-align: center;
+   margin: 30px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px;
+    width: 400px;
+    height: 400px;
+    margin: 30px auto;
+    background-color: black;
+    border-radius: 50%;
+    border: 20px solid black;
+}
+
+.button {
+    border: 1px solid black;
+    width: 200px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    text-align: center;
+}
+
+#play-btn {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    align-items: center;
+    width: 20%;
+    top: 40%;
+    left: 39%;
+    border: 10px solid black;
+    
+}
+
+
+#top-left {
+    border-radius: 100% 0 0 0;
+    background-color: #EA9AB2;
+}
+
+#top-right {
+    border-radius: 0 100% 0 0;
+    background-color: #B3DEE2;
+}
+
+#btm-left {
+    border-radius: 0 0 0 100%;
+    background-color: #F4D35E;
+}
+
+#btm-right{
+    border-radius: 0 0 100% 0;
+    background-color: #EAF2D7;
 }
