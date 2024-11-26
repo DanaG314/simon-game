@@ -1,47 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
    text-align: center;
    margin: 30px;
 }
 
+
 .container {
     display: grid;
     grid-template-columns: 200px 200px;
     grid-template-rows: 200px 200px;
-    width: 400px;
+    width: 400px; /* 410 for both */
     height: 400px;
     margin: 30px auto;
     background-color: black;
-    border-radius: 50%;
-    border: 20px solid black;
+    border-radius: 25%;
 }
 
 .button {
-    border: 1px solid black;
     width: 200px;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     aspect-ratio: 1/1;
-    justify-content: center;
-    text-align: center;
+    border: 10px solid black;
 }
 
 #play-btn {
     background-color: white;
+    font-size: 30px;
     border-radius: 50%;
     position: absolute;
-    display: block;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    width: 20%;
-    top: 40%;
-    left: 39%;
-    border: 10px solid black;
-    
+    width: 18%;
+    height: 25%;
+    top: 40%; /* 39% previously*/
+    left: 41%;  /* 38% previously*/
+    border: 20px solid black;
 }
 
 
 #top-left {
     border-radius: 100% 0 0 0;
     background-color: #EA9AB2;
+    /* border: 1px solid black; */
 }
 
 #top-right {
