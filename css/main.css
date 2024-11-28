@@ -7,6 +7,13 @@ body {
    margin: 30px;
 }
 
+main  {
+    display: grid;
+    grid-template-columns: 400px 300px 400px;
+    grid-template-rows: 100px 100px 300px;
+    justify-self: center;
+   
+}
 
 .container {
     display: grid;
@@ -14,18 +21,32 @@ body {
     grid-template-rows: 200px 200px;
     width: 400px; /* 410 for both */
     height: 400px;
-    margin: 30px auto;
+    bottom: 100px;
+    left: 348px;
     background-color: black;
     border-radius: 25%;
+    position: relative;
 }
 
-.button {
+.pad {
     width: 200px;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     aspect-ratio: 1/1;
     border: 10px solid black;
+}
+
+#level {
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border: 2px dashed pink;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-self: start;
+    align-items: center;
+    
 }
 
 #play-btn {
@@ -33,16 +54,20 @@ body {
     font-size: 30px;
     border-radius: 50%;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-90px, -90px);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18%;
-    height: 25%;
-    top: 40%; /* 39% previously*/
-    left: 41%;  /* 38% previously*/
+    width: 180px;
+    height: 180px;
     border: 20px solid black;
 }
 
+#reset {
+    margin-top: 50px;
+}
 
 #top-left {
     border-radius: 100% 0 0 0;

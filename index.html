@@ -7,17 +7,24 @@
     <script defer src="js/main.js"></script>
     <title>Simon</title>
   </head>
-   <body>
+  <body>
     <h1>SIMON</h1>
-    <!-- <br/> -->
-    <h2 class="countdown">Countdown</h2>
-    <section class="container">
-        <div class="button" id="top-left"></div>
-        <div class="button" id="top-right"></div>
-        <div class="button" id="play-btn">play</div>
-        <div class="button" id="btm-left"></div>
-        <div class="button" id="btm-right"></div>
-    </section>
+    <main>
+      <h2>Level</h2>
+      <br />
+      <!-- <div class="countdown">Countdown</div> -->
+      <h2>Turn</h2>
+      <h2 id="level"></h2>
+      <br />
+      <h2 id="turn"></h2>
+      <section class="container">
+        <div class="pad" id="top-left"></div>
+        <div class="pad" id="top-right"></div>
+        <button id="play-btn">play</button>
+        <div class="pad" id="btm-left"></div>
+        <div class="pad" id="btm-right"></div>
+      </section>
     </main>
+    <button id="reset">Reset</button>
   </body>
 </html>
