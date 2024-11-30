@@ -2,12 +2,15 @@
 const countdownAudio = new Audio(
   "https://cdn.pixabay.com/audio/2022/11/05/audio_997c8fe344.mp3"
 );
+
+const pIndexes = [0, 1, 2, 3];
 /*----- state variables -----*/
 let compSequence;
 let playerSequence;
 let turn;
 let running;
 let level;
+let sequenceLength = 4;
 
 /*----- cached elements  -----*/
 const playButton = document.getElementById("play-btn");
@@ -38,14 +41,30 @@ function render() {
   renderLevel();
   //   renderCountdown();
 }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function playSequence() {
-  //after countdown simon plays random sequence
-  //while he plays his sequence the buttons are unclickable
+  for (let i = 0; i < sequenceLength; i++) {
+    compSequence[i] = pIndexes[getRandomInt(0, 3)];
+  }
+  for (let idx in compSequence) {
+    padEls[idx].style.opacity = 1;
+    setTimeout(function () {
+      padEls[idx].style.opacity = 0.7;
+    }, 250);
+  }
 }
 
 function handleClick(event) {
   const padIdx = padEls.indexOf(event.target);
+  if (turn !== "Simon") {
+    padEls[padIdx].style.opacity = 1;
+    setTimeout(function () {
+      padEls[padIdx].style.opacity = 0.7;
+    }, 300);
+  }
 
   //   console.log(playButtonIdx);
   console.log(padIdx);
@@ -64,6 +83,7 @@ function renderCountdown() {
     } else {
       clearInterval(timerId);
       playButton.innerText = "";
+      playSequence();
     }
   }, 1000);
 }
