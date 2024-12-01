@@ -76,8 +76,9 @@ function playSequence() {
     highlightPad(compSequence[currentStep]); // lights up the current pad
     currentStep++; // moves to next step in the sequence
     setTimeout(highlightNextPad, 1500); // waits 1.5 seconds before playing next pad
-  }
-  setTimeout(highlightNextPad(), 1000); // starts the sequence after 1 second
+  } // highlightNextPad continues calling itself for each step of the sequence
+  // until the condition is met.
+  setTimeout(highlightNextPad, 1000); // starts the sequence after 1 second
 }
 
 function highlightPad(index) {
