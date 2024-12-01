@@ -4,23 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lacquer&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tiny5&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lacquer&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spicy+Rice&family=Tiny5&display=swap"
+      rel="stylesheet"
+    />
+
     <script defer src="js/main.js"></script>
     <title>Simon</title>
   </head>
   <body>
     <h1>SIMON</h1>
     <main>
-      <h2>Level</h2>
-      <br />
+      <h2>Level: <span id="level"></span></h2>
       <!-- <div class="countdown">Countdown</div> -->
-      <h2>Turn</h2>
-      <h2 id="level"></h2>
-      <br />
-      <h2 id="turn"></h2>
+
       <section class="container">
         <div class="pad" id="top-left"></div>
         <div class="pad" id="top-right"></div>
-        <button id="play-btn">play</button>
+        <button id="play-btn">START</button>
         <div class="pad" id="btm-left"></div>
         <div class="pad" id="btm-right"></div>
       </section>

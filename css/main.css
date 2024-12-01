@@ -3,8 +3,11 @@
 }
 
 body {
-   text-align: center;
-   margin: 30px;
+    text-align: center;
+    margin: 30px;
+    background-image: url('https://i.pinimg.com/474x/62/af/7f/62af7f20d86e85560eee15c96a5f7957.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main  {
@@ -15,14 +18,29 @@ main  {
    
 }
 
+h1 {
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #f9c189;
+}
+
+h2 {
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+
+
 .container {
     display: grid;
     grid-template-columns: 200px 200px;
     grid-template-rows: 200px 200px;
     width: 400px; /* 410 for both */
     height: 400px;
-    bottom: 100px;
-    left: 348px;
+    top: 99px;
+    right: 50px;
     background-color: black;
     border-radius: 25%;
     position: relative;
@@ -40,11 +58,11 @@ main  {
 }
 
 #level {
-    font-size: 40px;
-    width: 50px;
-    height: 50px;
-    border: 2px dashed pink;
-    display: flex;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f9c189;
+    display: inline-flex;
     justify-self: center;
     justify-content: center;
     align-self: start;
@@ -54,7 +72,10 @@ main  {
 
 #play-btn {
     background-color: white;
-    font-size: 30px;
+    font-family: 'Tiny5', sans-serif;
+    color: black;
+    font-weight: 400;
+    font-size: 40px;
     border-radius: 50%;
     z-index: 1;
     position: absolute;
@@ -70,13 +91,20 @@ main  {
 }
 
 #reset {
+    font-family: 'Spicy Rice', serif;
+    background-image: url('https://i.pinimg.com/474x/62/af/7f/62af7f20d86e85560eee15c96a5f7957.jpg');
+    background-size: auto;
+    border-radius: 50%;
+    font-size: 25px;
     margin-top: 50px;
+    width: 100px;
+    height: 50px;
 }
 
 
 #top-left {
     border-radius: 100% 0 0 0;
-    background-color: #A63D40;
+    background-color: #F45B69;
     opacity: 0.7;
     cursor: pointer;
     /* border: 1px solid black; 
@@ -86,7 +114,7 @@ main  {
 
 #top-right {
     border-radius: 0 100% 0 0;
-    background-color: #6494AA;
+    background-color: #347FC4;
     opacity: 0.7;
     cursor: pointer;
     /* B3DEE2 */
@@ -94,7 +122,7 @@ main  {
 
 #btm-left {
     border-radius: 0 0 0 100%;
-    background-color: #90A959;
+    background-color: #8CB369;
     opacity: 0.7;
     cursor: pointer;
     /* F4D35E */
@@ -102,7 +130,7 @@ main  {
 
 #btm-right{
     border-radius: 0 0 100% 0;
-    background-color: #E9B872;
+    background-color: #FFBF81;
     opacity: 0.7;
     cursor: pointer;
     /* opacity: 0.7; */

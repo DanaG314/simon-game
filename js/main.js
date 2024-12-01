@@ -3,14 +3,24 @@ const countdownAudio = new Audio(
   "https://cdn.pixabay.com/audio/2022/11/05/audio_997c8fe344.mp3"
 );
 
-const pIndexes = [0, 1, 2, 3];
+const roundCompleteSound = new Audio(
+  "https://cdn.pixabay.com/audio/2022/03/10/audio_f96ec71310.mp3"
+);
+
+const padSounds = {
+  0: new Audio("https://cdn.pixabay.com/audio/2024/01/11/audio_4f4a1ec3e0.mp3"),
+  1: new Audio("https://cdn.pixabay.com/audio/2022/03/19/audio_b1e725b098.mp3"),
+  2: new Audio("https://cdn.pixabay.com/audio/2023/01/01/audio_a178429b06.mp3"),
+  3: new Audio("https://cdn.pixabay.com/audio/2024/01/11/audio_4b8960c6a0.mp3"),
+};
+
 /*----- state variables -----*/
 let compSequence;
 let playerSequence;
 let turn;
-let running;
 let level;
-let sequenceLength = 4;
+let sequenceLength;
+let timerId;
 
 /*----- cached elements  -----*/
 const playButton = document.getElementById("play-btn");
@@ -20,17 +30,27 @@ const countdownEl = document.getElementsByClassName("countdown");
 /*----- event listeners -----*/
 
 padEls.forEach(function (padEl) {
-  padEl.addEventListener("click", handleClick);
+  // for each pad in the game, this attaches a click event listener
+  padEl.addEventListener("click", handleClick); // when pad is clicked the handleClick() func runs
 });
 
-playButton.addEventListener("click", renderCountdown);
+playButton.addEventListener("click", startCountdown);
+
+resetBtnEl.addEventListener("click", function () {
+  clearInterval(timerId); // stops the countdown timer
+  countdownAudio.pause(); // stops the countdown sound
+  init(); // resets game state
+  playButton.innerText = "START"; // changes button text back to "START"
+  playButton.addEventListener("click", startCountdown); // re-enables the play button
+});
 
 /*----- functions -----*/
 init();
 
 function init() {
+  // Initializes state of game
   level = 1;
-  running = false;
+  sequenceLength = 4;
   turn = "Simon";
   compSequence = [];
   playerSequence = [];
@@ -41,51 +61,99 @@ function render() {
   renderLevel();
   //   renderCountdown();
 }
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 function playSequence() {
-  for (let i = 0; i < sequenceLength; i++) {
-    compSequence[i] = pIndexes[getRandomInt(0, 3)];
+  let currentStep = 0; // keeps track of which step simon is currently playing
+  playButton.innerText = "Simons Turn";
+
+  function highlightNextPad() {
+    if (currentStep >= sequenceLength) {
+      // if simon has played all steps
+      turn = "player";
+      playButton.innerText = "Your Turn!";
+      return;
+    }
+    highlightPad(compSequence[currentStep]); // lights up the current pad
+    currentStep++; // moves to next step in the sequence
+    setTimeout(highlightNextPad, 1500); // waits 1.5 seconds before playing next pad
   }
-  for (let idx in compSequence) {
-    padEls[idx].style.opacity = 1;
-    setTimeout(function () {
-      padEls[idx].style.opacity = 0.7;
-    }, 250);
-  }
+  setTimeout(highlightNextPad(), 1000); // starts the sequence after 1 second
+}
+
+function highlightPad(index) {
+  console.log("highlighting pad ", index); // pad being highlighted
+  padSounds[index].play(); // plays sound associated with pad
+  padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
+
+  setTimeout(function () {
+    padEls[index].style.opacity = 0.7; // restores pads original opacity
+  }, 350); // changes opacity back after 350 milliseconds
 }
 
 function handleClick(event) {
-  const padIdx = padEls.indexOf(event.target);
+  const padIdx = padEls.indexOf(event.target); // finds which pad was clicked
   if (turn !== "Simon") {
-    padEls[padIdx].style.opacity = 1;
-    setTimeout(function () {
-      padEls[padIdx].style.opacity = 0.7;
-    }, 300);
+    // only allows click during player's turn
+    highlightPad(padIdx); // visually light up the pad the player clicked
+    playerSequence.push(padIdx); // adds clicked pad to players sequence
+    validateSequence(); // checks if players input is correct
   }
-
-  //   console.log(playButtonIdx);
-  console.log(padIdx);
 }
 
-function renderCountdown() {
-  let count = 3;
-  countdownAudio.currentTime = 0;
-  countdownAudio.play();
-  playButton.style.visibility = "visible";
-  playButton.innerText = count;
-  const timerId = setInterval(function () {
-    count--;
-    if (count) {
-      playButton.innerText = count;
-    } else {
-      clearInterval(timerId);
-      playButton.innerText = "";
-      playSequence();
+function validateSequence() {
+  for (let i = 0; i < playerSequence.length; i++) {
+    if (playerSequence[i] !== compSequence[i]) {
+      // if sequences dont match
+      playButton.innerText = "GAME OVER";
+      turn = "Simon";
+      return;
     }
-  }, 1000);
+
+    if (playerSequence.length === sequenceLength - 1) {
+      // if player completes level
+      level++; // increases the level
+      renderLevel(); // updates the level display
+      sequenceLength++; // increases the length of the sequence for the next round
+      playerSequence = []; // resets the player's sequence for the next round
+      playButton.innerText = "Next Round";
+      roundCompleteSound.play(); // plays sound indicating success
+      generateSequence(); // generates next sequence
+      setTimeout(playSequence, 2000); // starts the next round after 2 seconds
+      turn = "Simon";
+    }
+  }
+}
+
+function getRandomInt(min, max) {
+  // generate random int
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateSequence() {
+  //iterate over sequence length
+  for (let i = 0; i < sequenceLength; i++) {
+    compSequence[i] = getRandomInt(0, 3); // adds random numbers (0-3) to simons sequence
+  }
+}
+
+function startCountdown() {
+  // handles 3-second countdown before simon begins, updates play button text to show countdown and play sound
+  playButton.removeEventListener("click", startCountdown, false); // disables play button during countdown
+  let count = 3; // countdown starts at 3 seconds
+  countdownAudio.currentTime = 0; // resets the audio to the begining
+  countdownAudio.play(); // plays countdown sound
+  playButton.innerText = count; // shows current countdown number
+  timerId = setInterval(function () {
+    count--; // decreases the countdown by 1 each second
+    if (count) {
+      playButton.innerText = count; // updates the countdown on the button
+    } else {
+      clearInterval(timerId); // stops the countdown
+      playButton.innerText = "Simons Turn"; // updates button to indicate "Simons" turn
+      generateSequence(); // generates randonm sequence for simon
+      setTimeout(playSequence, 2000); // shows simons sequence after 2 seconds
+    }
+  }, 1000); // runs the inner function every 1 second
 }
 
 function renderLevel() {
