@@ -106,6 +106,10 @@ h2 {
     height: 50px;
 }
 
+#reset:active {
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
 
 #top-left {
     border-radius: 100% 0 0 0;
