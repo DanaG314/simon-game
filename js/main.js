@@ -3,6 +3,10 @@ const countdownAudio = new Audio(
   "https://cdn.pixabay.com/audio/2022/11/05/audio_997c8fe344.mp3"
 );
 
+const gameOverAudio = new Audio(
+  "https://cdn.pixabay.com/audio/2024/08/07/audio_cba96c8800.mp3"
+);
+
 const roundCompleteSound = new Audio(
   "https://cdn.pixabay.com/audio/2022/03/10/audio_f96ec71310.mp3"
 );
@@ -37,9 +41,9 @@ padEls.forEach(function (padEl) {
 playButton.addEventListener("click", startCountdown);
 
 resetBtnEl.addEventListener("click", function () {
+  init(); // resets game state
   clearInterval(timerId); // stops the countdown timer
   countdownAudio.pause(); // stops the countdown sound
-  init(); // resets game state
   playButton.innerText = "START"; // changes button text back to "START"
   playButton.addEventListener("click", startCountdown); // re-enables the play button
 });
@@ -54,7 +58,7 @@ function init() {
   turn = "Simon";
   compSequence = [];
   playerSequence = [];
-  generateFirstSequence();
+  playButton.style.color = "black";
   render();
 }
 
@@ -107,6 +111,8 @@ function validateSequence() {
     if (playerSequence[i] !== compSequence[i]) {
       // if sequences dont match
       playButton.innerText = "GAME OVER";
+      gameOverAudio.play();
+      playButton.style.color = "#FF0054";
       turn = "Simon";
       return;
     }
