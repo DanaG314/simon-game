@@ -5,9 +5,9 @@
 body {
     text-align: center;
     margin: 30px;
-    background-image: url('https://i.pinimg.com/474x/62/af/7f/62af7f20d86e85560eee15c96a5f7957.jpg');
+    background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:auto;
 }
 
 main  {
@@ -22,11 +22,14 @@ h1 {
     font-family: "Spicy Rice", serif;
     font-weight: 400;
     font-size: 60px;
-    color: #f9c189;
+    color: #FF82A9;
 }
 
 h2 {
+    color: #FF82A9;
     font-family: "Spicy Rice", serif;
+    display: flex;
+    justify-content: flex-end;
     font-weight: 400;
     font-size: 30px;
 }
@@ -62,6 +65,7 @@ h2 {
     width: 40px;
     height: 40px;
     border: 2px solid #f9c189;
+    margin-left: 20px;
     display: inline-flex;
     justify-self: center;
     justify-content: center;
@@ -92,10 +96,11 @@ h2 {
 
 #reset {
     font-family: 'Spicy Rice', serif;
-    background-image: url('https://i.pinimg.com/474x/62/af/7f/62af7f20d86e85560eee15c96a5f7957.jpg');
-    background-size: auto;
+    background-color: #FF82A9;
+    color:  #FFEBE7;
     border-radius: 50%;
-    font-size: 25px;
+    font-size: 20px;
+    border: 2px solid black;
     margin-top: 50px;
     width: 100px;
     height: 50px;

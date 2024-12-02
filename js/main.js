@@ -20,7 +20,7 @@ let playerSequence;
 let turn;
 let level;
 let sequenceLength;
-let timerId;
+let timerId; // countdown
 
 /*----- cached elements  -----*/
 const playButton = document.getElementById("play-btn");
@@ -54,6 +54,7 @@ function init() {
   turn = "Simon";
   compSequence = [];
   playerSequence = [];
+  generateFirstSequence();
   render();
 }
 
@@ -77,7 +78,7 @@ function playSequence() {
     currentStep++; // moves to next step in the sequence
     setTimeout(highlightNextPad, 1500); // waits 1.5 seconds before playing next pad
   } // highlightNextPad continues calling itself for each step of the sequence
-  // until the condition is met.
+  // until the condition is met. (recursive function, got help from MDN, stack overflow)
   setTimeout(highlightNextPad, 1000); // starts the sequence after 1 second
 }
 
@@ -110,15 +111,15 @@ function validateSequence() {
       return;
     }
 
-    if (playerSequence.length === sequenceLength - 1) {
+    if (i === sequenceLength) {
       // if player completes level
       level++; // increases the level
       renderLevel(); // updates the level display
       sequenceLength++; // increases the length of the sequence for the next round
       playerSequence = []; // resets the player's sequence for the next round
+      compSequence.push(getRandomInt(0, 3));
       playButton.innerText = "Next Round";
       roundCompleteSound.play(); // plays sound indicating success
-      generateSequence(); // generates next sequence
       setTimeout(playSequence, 2000); // starts the next round after 2 seconds
       turn = "Simon";
     }
@@ -130,10 +131,10 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateSequence() {
+function generateFirstSequence() {
   //iterate over sequence length
   for (let i = 0; i < sequenceLength; i++) {
-    compSequence[i] = getRandomInt(0, 3); // adds random numbers (0-3) to simons sequence
+    compSequence.push(getRandomInt(0, 3)); // adds random numbers (0-3) to simons sequence
   }
 }
 
@@ -151,7 +152,7 @@ function startCountdown() {
     } else {
       clearInterval(timerId); // stops the countdown
       playButton.innerText = "Simons Turn"; // updates button to indicate "Simons" turn
-      generateSequence(); // generates randonm sequence for simon
+      generateFirstSequence(); // generates randonm sequence for simon
       setTimeout(playSequence, 2000); // shows simons sequence after 2 seconds
     }
   }, 1000); // runs the inner function every 1 second
