@@ -116,8 +116,7 @@ function validateSequence() {
       turn = "Simon";
       return;
     }
-
-    if (i === sequenceLength) {
+    if (playerSequence.length === sequenceLength) {
       // if player completes level
       level++; // increases the level
       renderLevel(); // updates the level display
