@@ -1,10 +1,18 @@
-# Simon
+<div align="center" id="banner">
+    <img width="500" alt="simon banner" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiRYn-iT4BlCSGK_GBQvBEHyOO4tx1ZEYSqA&s">
+</div>
+
+<div align="center" id="header">
+
+# 🕹️ Simon
+
+</div>
 
 ## Description
 
 Simon is a short-term memory game where the player must repeat an increasing sequence of lights and sounds. The game begins with Simon playing his sequence, and the player mimics the sequence in order to make it to the next round. Each round Simon adds another step to the sequence making it harder to remember. The game ends when a player enters an incorrect sequence.
 
-## Screenshots
+## 📸 Screenshots
 
 |      Screenshot       |                      Description                      |
 | :-------------------: | :---------------------------------------------------: |
@@ -12,7 +20,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 | **Player's Sequence** |    <img src="/images/Player turn.png" width="300">    |
 |    **Next Round**     |    <img src="/images/Next Round.png" width="300">     |
 
-## Technologies Used
+## 💻 Technologies Used
 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![CSS3](https://img.shields.io/badge/-CSS_Grid-05122A?style=flat&logo=css3)
@@ -21,10 +29,10 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
-## Getting Started
+## 🧩 Getting Started
 
 <details open>
-<summary>Game Instructions</summary>
+<summary>🎮 Game Instructions</summary>
 
 1. Press the `START` button.
 2. Simon will play his sequence.
@@ -35,7 +43,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 </details>
 
 <details open>
-<summary>Planning</summary>
+<summary>📋 Planning</summary>
 
 ![Simon Wireframe](./images/wireframe.PNG)
 
@@ -49,7 +57,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 </details>
 
-## Next Steps
+## 🚶🏻‍➡️ Next Steps
 
 - Add a `GAME OVER` sound that plays, and show text as red.
 - Make the `RESET` button animated.
