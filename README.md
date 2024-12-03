@@ -6,12 +6,13 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 ## Screenshots
 
-|      Screenshot      |                      Description                      |
-| :------------------: | :---------------------------------------------------: |
-|    **Start Game**    |       <img src="/images/start.png" width="400">       |
-| **Simon's Sequence** | <img src="/images/Simon&apos;s Turn.png" width="400"> |
-|    **Next Round**    |    <img src="/images/Next Round.png" width="400">     |
-|    **Game Over**     |     <img src="/images/Game Over.png" width="400">     |
+|      Screenshot       |                      Description                      |
+| :-------------------: | :---------------------------------------------------: |
+|    **Start Game**     |       <img src="/images/start.png" width="200">       |
+| **Simon's Sequence**  | <img src="/images/Simon&apos;s Turn.png" width="200"> |
+| **Player's Sequence** |    <img src="/images/Player turn.png" width="200>     |
+|    **Next Round**     |    <img src="/images/Next Round.png" width="200">     |
+|     **Game Over**     |     <img src="/images/Game Over.png" width="200">     |
 
 ## Technologies Used
 
