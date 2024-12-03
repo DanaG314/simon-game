@@ -6,7 +6,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 ## Screenshots
 
-![Simon Wireframe](./IMG_0039.PNG)
+![Simon Wireframe](./WireFrame%20img/IMG_0039.PNG)
 
 ## Technologies Used
 
