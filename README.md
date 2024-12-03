@@ -8,11 +8,10 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 |      Screenshot       |                      Description                      |
 | :-------------------: | :---------------------------------------------------: |
-|    **Start Game**     |       <img src="/images/start.png" width="200">       |
-| **Simon's Sequence**  | <img src="/images/Simon&apos;s Turn.png" width="200"> |
-| **Player's Sequence** |    <img src="/images/Player turn.png" width="200>     |
-|    **Next Round**     |    <img src="/images/Next Round.png" width="200">     |
-|     **Game Over**     |     <img src="/images/Game Over.png" width="200">     |
+| **Simon's Sequence**  | <img src="/images/Simon&apos;s Turn.png" width="300"> |
+| **Player's Sequence** |    <img src="/images/Player turn.png" width="300>     |
+|    **Next Round**     |    <img src="/images/Next Round.png" width="300">     |
+|     **Game Over**     |     <img src="/images/Game Over.png" width="300">     |
 
 ## Technologies Used
 
@@ -45,8 +44,13 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 - Player clicks `START` button triggers the countdown to start the game
 - Simon starts its random 4 index pattern, pads light up with delay in between so that player is able to better remember pattern. Pads also have their own sound.
 - Once Simon is done its pattern, its the players turn to click the correct pattern. If player pattern is equal to Simons pattern, the next round starts to play.
-- If player enters one incorrect pad pattern it is `GAME OVER`, button text turns red, game over audio is played.
+- If player enters one incorrect pad pattern it is `GAME OVER`.
 - When player enters next round, Simon plays the same pattern as the last but adds another pad to the pattern at the end.
 - When it is `GAME OVER` there is a `RESET` button that will reset the game and player can click `START` again to start a new game.
 
 </details>
+
+## Next Steps
+
+- Add a `GAME OVER` sound that plays, and show text as red.
+- Make the `RESET` button animated.
