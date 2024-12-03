@@ -1,5 +1,5 @@
 <div align="center" id="banner">
-    <img width="500" alt="simon banner" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiRYn-iT4BlCSGK_GBQvBEHyOO4tx1ZEYSqA&s">
+    <img width="500" height="300" alt="simon banner" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiRYn-iT4BlCSGK_GBQvBEHyOO4tx1ZEYSqA&s">
 </div>
 
 <div align="center" id="header">
