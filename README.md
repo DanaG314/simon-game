@@ -4,7 +4,7 @@
 
 Simon is a short-term memory game where the player must repeat an increasing sequence of lights and sounds. The game begins with Simon playing his sequence, and the player mimics the sequence in order to make it to the next round. Each round Simon adds another step to the sequence making it harder to remember. The game ends when a player enters an incorrect sequence.
 
-## Screenshots
+## Screenshot
 
 ![Simon Wireframe](./WireFrame%20img/IMG_0039.PNG)
 
@@ -18,3 +18,20 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
 ## Getting Started
+
+<details open>
+<summary>Game Instructions</summary>
+
+1. Press the `START` button.
+2. Simon will play his sequence.
+3. Choose the same pattern as Simon by clicking on the correct pads.
+4. If your sequence matches Simon's sequence `NEXT ROUND` start, the process will repeat but with another color added this time.
+5. If incorrect press the `RESET` button to reset the game, and then press `START` to play again.
+
+</details>
+
+<details open>
+<summary>Planning</summary>
+![Simon Wireframe](./WireFrame%20img/IMG_0039.PNG)
+
+</details>
