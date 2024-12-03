@@ -4,9 +4,14 @@
 
 Simon is a short-term memory game where the player must repeat an increasing sequence of lights and sounds. The game begins with Simon playing his sequence, and the player mimics the sequence in order to make it to the next round. Each round Simon adds another step to the sequence making it harder to remember. The game ends when a player enters an incorrect sequence.
 
-## Screenshot
+## Screenshots
 
-![Simon Wireframe](./WireFrame%20img/IMG_0039.PNG)
+|      Screenshot      |                      Description                      |
+| :------------------: | :---------------------------------------------------: |
+|    **Start Game**    |       <img src="/images/start.png" width="400">       |
+| **Simon's Sequence** | <img src="/images/Simon&apos;s Turn.png" width="400"> |
+|    **Next Round**    |    <img src="/images/Next Round.png" width="400">     |
+|    **Game Over**     |     <img src="/images/Game Over.png" width="400">     |
 
 ## Technologies Used
 
@@ -25,7 +30,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 1. Press the `START` button.
 2. Simon will play his sequence.
 3. Choose the same pattern as Simon by clicking on the correct pads.
-4. If your sequence matches Simon's sequence `NEXT ROUND` start, the process will repeat but with another color added this time.
+4. If your sequence matches Simon's sequence `NEXT ROUND` starts, the process will repeat but with another color added this time.
 5. If incorrect press the `RESET` button to reset the game, and then press `START` to play again.
 
 </details>
@@ -33,12 +38,12 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 <details open>
 <summary>Planning</summary>
 
-![Simon Wireframe](./WireFrame%20img/IMG_0039.PNG)
+![Simon Wireframe](./images/wireframe.PNG)
 
 - One player game
-- Player clicks `START` button triggers countdown to start the game
+- Player clicks `START` button triggers the countdown to start the game
 - Simon starts its random 4 index pattern, pads light up with delay in between so that player is able to better remember pattern. Pads also have their own sound.
-- Once Simon is down its pattern, its the players turn to click the correct pattern. If player pattern is equal to Simons pattern, the next round starts to play.
+- Once Simon is done its pattern, its the players turn to click the correct pattern. If player pattern is equal to Simons pattern, the next round starts to play.
 - If player enters one incorrect pad pattern it is `GAME OVER`, button text turns red, game over audio is played.
 - When player enters next round, Simon plays the same pattern as the last but adds another pad to the pattern at the end.
 - When it is `GAME OVER` there is a `RESET` button that will reset the game and player can click `START` again to start a new game.
