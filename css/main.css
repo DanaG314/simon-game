@@ -6,8 +6,12 @@ body {
     text-align: center;
     margin: 30px;
     background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     background-repeat: no-repeat;
-    background-size:auto;
+    background-position: center;
+    background-size: cover;
 }
 
 main  {
@@ -29,7 +33,7 @@ h2 {
     color: #FF82A9;
     font-family: "Spicy Rice", serif;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     font-weight: 400;
     font-size: 30px;
 }
