@@ -23,6 +23,7 @@ let compSequence;
 let playerSequence;
 let turn;
 let level;
+let highscore = 0;
 let sequenceLength;
 let timerId; // countdown
 
@@ -64,6 +65,7 @@ function init() {
 
 function render() {
   renderLevel();
+  // renderHighscore();
   //   renderCountdown();
 }
 
@@ -112,6 +114,7 @@ function validateSequence() {
       // if sequences dont match
       playButton.innerText = "GAME OVER";
       gameOverAudio.play();
+      renderHighscore();
       playButton.style.color = "#FF0054";
       turn = "Simon";
       return;
@@ -119,6 +122,7 @@ function validateSequence() {
     if (playerSequence.length === sequenceLength) {
       // if player completes level
       level++; // increases the level
+      renderHighscore();
       renderLevel(); // updates the level display
       sequenceLength++; // increases the length of the sequence for the next round
       playerSequence = []; // resets the player's sequence for the next round
@@ -161,6 +165,14 @@ function startCountdown() {
       setTimeout(playSequence, 2000); // shows simons sequence after 2 seconds
     }
   }, 1000); // runs the inner function every 1 second
+}
+
+function renderHighscore() {
+  const highscoreEl = document.getElementById("highscore");
+  if (level > 1 && level > highscore) {
+    highscore = level - 1;
+    highscoreEl.innerText = highscore;
+  }
 }
 
 function renderLevel() {

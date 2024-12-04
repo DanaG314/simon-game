@@ -46,8 +46,7 @@ h2 {
     grid-template-rows: 200px 200px;
     width: 400px; /* 410 for both */
     height: 400px;
-    top: 99px;
-    right: 50px;
+    left: 347px;
     background-color: black;
     border-radius: 25%;
     position: relative;
@@ -64,7 +63,7 @@ h2 {
     }
 }
 
-#level {
+#level, #highscore {
     font-size: 30px;
     width: 40px;
     height: 40px;
