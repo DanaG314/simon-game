@@ -65,8 +65,6 @@ function init() {
 
 function render() {
   renderLevel();
-  // renderHighscore();
-  //   renderCountdown();
 }
 
 function playSequence() {
@@ -115,7 +113,10 @@ function validateSequence() {
       playButton.innerText = "GAME OVER";
       gameOverAudio.play();
       renderHighscore();
-      playButton.style.color = "#FF0054";
+      playButton.style.animation = "none";
+      playButton.offsetHeight;
+      playButton.style.animation = "blink 2s linear";
+      playButton.style.color = "red";
       turn = "Simon";
       return;
     }

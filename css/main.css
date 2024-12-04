@@ -77,6 +77,18 @@ h2 {
     
 }
 
+@keyframes blink {
+    0%, 100% {
+        background-color: red;
+        color: white;
+    }
+
+    50% {
+        background-color: white;
+        color: red;
+    }
+}
+
 #play-btn {
     background-color: white;
     font-family: 'Tiny5', sans-serif;
