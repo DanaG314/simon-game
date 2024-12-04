@@ -61,3 +61,4 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 - Add a `GAME OVER` sound that plays, and show text as red.
 - Make the `RESET` button animated.
+- Add a `Best Score` feature.
