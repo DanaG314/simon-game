@@ -31,7 +31,6 @@ let timerId; // countdown
 const playButton = document.getElementById("play-btn");
 const padEls = [...document.getElementsByClassName("pad")];
 const resetBtnEl = document.getElementById("reset");
-const countdownEl = document.getElementsByClassName("countdown");
 /*----- event listeners -----*/
 
 padEls.forEach(function (padEl) {
@@ -60,10 +59,6 @@ function init() {
   compSequence = [];
   playerSequence = [];
   playButton.style.color = "black";
-  render();
-}
-
-function render() {
   renderLevel();
 }
 
