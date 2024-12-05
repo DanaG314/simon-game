@@ -12,12 +12,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    display: grid;
+    justify-content: center;
 }
 
 main  {
     display: grid;
     grid-template-columns: 400px 300px 400px;
-    grid-template-rows: 100px 100px 300px;
+    grid-template-rows: 100px 100px 300px 100px;
     justify-self: center;
    
 }
@@ -27,6 +29,7 @@ h1 {
     font-weight: 400;
     font-size: 60px;
     color: #FF82A9;
+    
 }
 
 h2 {
@@ -135,6 +138,9 @@ ol li {
     font-family: 'Spicy Rice', serif;
     background-color: #FF82A9;
     color:  #FFEBE7;
+    grid-column-start: 2;
+    grid-row-end: 5;
+    justify-self: center;
     border-radius: 50%;
     font-size: 20px;
     border: 2px solid #f9c189;
