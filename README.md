@@ -31,7 +31,7 @@ Simon is a short-term memory game where the player must repeat an increasing seq
 
 ## 🧩 Getting Started
 
-Click to play [Simon][link]!
+Click to play [Simon!][link]
 
 [link]: https://danag314.github.io/simon-game/
 
