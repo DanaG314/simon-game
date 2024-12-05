@@ -87,7 +87,6 @@ function playSequence() {
 }
 
 function highlightPad(index) {
-  console.log("highlighting pad ", index); // pad being highlighted
   padSounds[index].play(); // plays sound associated with pad
   padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
 
