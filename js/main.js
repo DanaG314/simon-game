@@ -87,9 +87,10 @@ function playSequence() {
 }
 
 function highlightPad(index) {
-  padSounds[index].play(); // plays sound associated with pad
-  padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
+  const sound = new Audio(padSounds[index].src);
+  sound.play();
 
+  padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
   setTimeout(function () {
     padEls[index].style.opacity = 0.7; // restores pads original opacity
   }, 350); // changes opacity back after 350 milliseconds
