@@ -35,6 +35,7 @@ Click to play [Simon!][link]
 
 [link]: https://danag314.github.io/simon-game/
 
+<details open>
 <summary>🎮 Game Instructions</summary>
 
 1. Press the `START` button.
