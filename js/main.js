@@ -82,7 +82,7 @@ function playSequence() {
 function highlightPad(index) {
   const sound = new Audio(padSounds[index].src);
   sound.play();
-  sound.volume = 0.5;
+  sound.volume = 0.4;
 
   padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
   setTimeout(function () {
@@ -106,6 +106,7 @@ function validateSequence() {
       // if sequences dont match
       playButton.innerText = "GAME OVER";
       gameOverAudio.play();
+      gameOverAudio.volume = 0.4;
       renderHighscore(); // called to display current highscore
       playButton.style.animation = "none";
       playButton.offsetHeight; // triggers restart of animation
@@ -124,7 +125,7 @@ function validateSequence() {
       compSequence.push(getRandomInt(0, 3)); // new random pad added
       playButton.innerText = "Next Round";
       roundCompleteSound.play(); // plays sound indicating success
-      roundCompleteSound.volume = 0.5;
+      roundCompleteSound.volume = 0.4;
       setTimeout(playSequence, 2000); // starts the next round after 2 seconds
       turn = "Simon";
     }
@@ -149,7 +150,7 @@ function startCountdown() {
   let count = 3; // countdown starts at 3 seconds
   countdownAudio.currentTime = 0; // resets the audio to the begining
   countdownAudio.play(); // plays countdown sound
-  countdownAudio.volume = 0.5;
+  countdownAudio.volume = 0.4;
   playButton.innerText = count; // shows current countdown number
   timerId = setInterval(function () {
     count--; // decreases the countdown by 1 each second
