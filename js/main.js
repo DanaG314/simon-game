@@ -33,10 +33,8 @@ const padEls = [...document.getElementsByClassName("pad")];
 const resetBtnEl = document.getElementById("reset");
 /*----- event listeners -----*/
 
-padEls.forEach(function (padEl) {
-  // for each pad in the game, this attaches a click event listener
-  padEl.addEventListener("click", handleClick); // when pad is clicked the handleClick() func runs
-});
+// for each pad in the game, this attaches a click event listener
+padEls.forEach((padEl) => padEl.addEventListener("click", handleClick)); // when pad is clicked the handleClick() func runs
 
 playButton.addEventListener("click", startCountdown);
 
@@ -84,6 +82,7 @@ function playSequence() {
 function highlightPad(index) {
   const sound = new Audio(padSounds[index].src);
   sound.play();
+  sound.volume = 0.5;
 
   padEls[index].style.opacity = 1; // temporarily changes the pads opacity to show its lit
   setTimeout(function () {
@@ -107,24 +106,25 @@ function validateSequence() {
       // if sequences dont match
       playButton.innerText = "GAME OVER";
       gameOverAudio.play();
-      renderHighscore();
+      renderHighscore(); // called to display current highscore
       playButton.style.animation = "none";
-      playButton.offsetHeight;
-      playButton.style.animation = "blink 2s linear";
-      playButton.style.color = "red";
+      playButton.offsetHeight; // triggers restart of animation
+      playButton.style.animation = "blink 2s linear"; // applies blink animation
+      playButton.style.color = "red"; // once the blink animation is done the text is turned red in gameover
       turn = "Simon";
-      return;
+      return; // exits if the game is over
     }
     if (playerSequence.length === sequenceLength) {
       // if player completes level
       level++; // increases the level
-      renderHighscore();
-      renderLevel(); // updates the level display
+      renderHighscore(); // highscore is updated
+      renderLevel(); // updates the level
       sequenceLength++; // increases the length of the sequence for the next round
       playerSequence = []; // resets the player's sequence for the next round
-      compSequence.push(getRandomInt(0, 3));
+      compSequence.push(getRandomInt(0, 3)); // new random pad added
       playButton.innerText = "Next Round";
       roundCompleteSound.play(); // plays sound indicating success
+      roundCompleteSound.volume = 0.5;
       setTimeout(playSequence, 2000); // starts the next round after 2 seconds
       turn = "Simon";
     }
@@ -149,6 +149,7 @@ function startCountdown() {
   let count = 3; // countdown starts at 3 seconds
   countdownAudio.currentTime = 0; // resets the audio to the begining
   countdownAudio.play(); // plays countdown sound
+  countdownAudio.volume = 0.5;
   playButton.innerText = count; // shows current countdown number
   timerId = setInterval(function () {
     count--; // decreases the countdown by 1 each second
@@ -166,7 +167,10 @@ function startCountdown() {
 function renderHighscore() {
   const highscoreEl = document.getElementById("highscore");
   if (level > 1 && level > highscore) {
-    highscore = level - 1;
+    // ensures game has advanced past the first level, and checks if the
+    //player's current level is higher than stored highscore.
+    highscore = level - 1; // updates highscore to the previous level
+    //which is the lvl achieved by the player
     highscoreEl.innerText = highscore;
   }
 }
